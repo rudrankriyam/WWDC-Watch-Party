@@ -9,9 +9,9 @@ import SwiftUI
 
 @main
 struct WWDCWatchPartyApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      SessionsView(sessions: .sampleSessions)
     }
+  }
 }

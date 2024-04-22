@@ -7,18 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A17528B2BCF9F28001EF204 /* VideoPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 0A17528A2BCF9F28001EF204 /* VideoPlayer */; };
 		0ADA81ED2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA81EC2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift */; };
-		0ADA81EF2BC7FBCB008714D0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA81EE2BC7FBCB008714D0 /* ContentView.swift */; };
+		0ADA81EF2BC7FBCB008714D0 /* ParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA81EE2BC7FBCB008714D0 /* ParticipantsView.swift */; };
 		0ADA81F12BC7FBCC008714D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ADA81F02BC7FBCC008714D0 /* Assets.xcassets */; };
 		0ADA81F42BC7FBCC008714D0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ADA81F32BC7FBCC008714D0 /* Preview Assets.xcassets */; };
+		0ADA81FC2BC7FC49008714D0 /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 0ADA81FB2BC7FC49008714D0 /* StreamVideo */; };
+		0ADA81FE2BC7FC49008714D0 /* StreamVideoSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0ADA81FD2BC7FC49008714D0 /* StreamVideoSwiftUI */; };
+		0AE97F402BD654BC0027F5D7 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE97F3F2BD654BC0027F5D7 /* Session.swift */; };
+		0AE97F442BD65CDF0027F5D7 /* SessionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE97F432BD65CDF0027F5D7 /* SessionsView.swift */; };
+		0AE97F462BD65D080027F5D7 /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE97F452BD65D080027F5D7 /* SessionDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0ADA81E92BC7FBCB008714D0 /* WWDCWatchParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDCWatchParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ADA81EC2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCWatchPartyApp.swift; sourceTree = "<group>"; };
-		0ADA81EE2BC7FBCB008714D0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0ADA81EE2BC7FBCB008714D0 /* ParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsView.swift; sourceTree = "<group>"; };
 		0ADA81F02BC7FBCC008714D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0ADA81F32BC7FBCC008714D0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0AE97F3F2BD654BC0027F5D7 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		0AE97F432BD65CDF0027F5D7 /* SessionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsView.swift; sourceTree = "<group>"; };
+		0AE97F452BD65D080027F5D7 /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +35,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ADA81FE2BC7FC49008714D0 /* StreamVideoSwiftUI in Frameworks */,
+				0A17528B2BCF9F28001EF204 /* VideoPlayer in Frameworks */,
+				0ADA81FC2BC7FC49008714D0 /* StreamVideo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +63,9 @@
 		0ADA81EB2BC7FBCB008714D0 /* WWDCWatchParty */ = {
 			isa = PBXGroup;
 			children = (
+				0AE97F422BD65CC80027F5D7 /* Views */,
+				0AE97F412BD65CC20027F5D7 /* Models */,
 				0ADA81EC2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift */,
-				0ADA81EE2BC7FBCB008714D0 /* ContentView.swift */,
 				0ADA81F02BC7FBCC008714D0 /* Assets.xcassets */,
 				0ADA81F22BC7FBCC008714D0 /* Preview Content */,
 			);
@@ -65,6 +78,24 @@
 				0ADA81F32BC7FBCC008714D0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0AE97F412BD65CC20027F5D7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0AE97F3F2BD654BC0027F5D7 /* Session.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0AE97F422BD65CC80027F5D7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AE97F432BD65CDF0027F5D7 /* SessionsView.swift */,
+				0AE97F452BD65D080027F5D7 /* SessionDetailView.swift */,
+				0ADA81EE2BC7FBCB008714D0 /* ParticipantsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +114,11 @@
 			dependencies = (
 			);
 			name = WWDCWatchParty;
+			packageProductDependencies = (
+				0ADA81FB2BC7FC49008714D0 /* StreamVideo */,
+				0ADA81FD2BC7FC49008714D0 /* StreamVideoSwiftUI */,
+				0A17528A2BCF9F28001EF204 /* VideoPlayer */,
+			);
 			productName = WWDCWatchParty;
 			productReference = 0ADA81E92BC7FBCB008714D0 /* WWDCWatchParty.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +147,10 @@
 				Base,
 			);
 			mainGroup = 0ADA81E02BC7FBCB008714D0;
+			packageReferences = (
+				0ADA81FA2BC7FC49008714D0 /* XCRemoteSwiftPackageReference "stream-video-swift" */,
+				0A1752892BCF9F28001EF204 /* XCRemoteSwiftPackageReference "VideoPlayer" */,
+			);
 			productRefGroup = 0ADA81EA2BC7FBCB008714D0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +177,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ADA81EF2BC7FBCB008714D0 /* ContentView.swift in Sources */,
+				0ADA81EF2BC7FBCB008714D0 /* ParticipantsView.swift in Sources */,
+				0AE97F462BD65D080027F5D7 /* SessionDetailView.swift in Sources */,
 				0ADA81ED2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift in Sources */,
+				0AE97F402BD654BC0027F5D7 /* Session.swift in Sources */,
+				0AE97F442BD65CDF0027F5D7 /* SessionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,11 +318,14 @@
 				DEVELOPMENT_TEAM = YQZQG7N4WG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is required to share your video during the WWDC watch party.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access is required to share your audio during the WWDC watch party.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,11 +350,14 @@
 				DEVELOPMENT_TEAM = YQZQG7N4WG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is required to share your video during the WWDC watch party.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access is required to share your audio during the WWDC watch party.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +393,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A1752892BCF9F28001EF204 /* XCRemoteSwiftPackageReference "VideoPlayer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wxxsw/VideoPlayer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.4;
+			};
+		};
+		0ADA81FA2BC7FC49008714D0 /* XCRemoteSwiftPackageReference "stream-video-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GetStream/stream-video-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A17528A2BCF9F28001EF204 /* VideoPlayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A1752892BCF9F28001EF204 /* XCRemoteSwiftPackageReference "VideoPlayer" */;
+			productName = VideoPlayer;
+		};
+		0ADA81FB2BC7FC49008714D0 /* StreamVideo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0ADA81FA2BC7FC49008714D0 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideo;
+		};
+		0ADA81FD2BC7FC49008714D0 /* StreamVideoSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0ADA81FA2BC7FC49008714D0 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideoSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0ADA81E12BC7FBCB008714D0 /* Project object */;
 }
