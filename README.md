@@ -14,6 +14,24 @@ This sample project demonstrates how to build an iOS app for hosting WWDC watch 
 iOS 16.0+
 Xcode 15.0+
 
+## Getting Started
+1. Clone the repository:
+```
+git clone https://github.com/rudrankriyam/WWDC-Watch-Party
+```
+
+2. Navigate to the project directory and open it in Xcode. Here is an example of opening the first project from Terminal:
+```
+cd /Users/rudrankriyam/Desktop/WWDCWatchParty/Building\ App\ with\ Video\ Calling
+xed . WWDCWatchParty.xcodeproj
+```
+
+3. Build and run the app:
+- Select a connected device from the scheme dropdown.
+- Click the Run button or press `Cmd+R` to build and run the app.
+
+4. Explore the app and start hosting or joining WWDC watch parties!
+
 ## License
 This sample project is released under the MIT License. See the LICENSE file for more information.
 
