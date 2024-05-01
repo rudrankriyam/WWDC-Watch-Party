@@ -39,6 +39,9 @@ struct SessionDetailView: View {
       if let player {
         VideoPlayer(player: player)
           .frame(height: 300)
+          .onDisappear {
+            player.replaceCurrentItem(with: nil)
+          }
           .onReceive(player.publisher(for: \.timeControlStatus)) { status in
             if status == .playing {
               syncTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
