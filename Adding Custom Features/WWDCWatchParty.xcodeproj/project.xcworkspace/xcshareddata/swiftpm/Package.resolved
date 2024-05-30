@@ -1,0 +1,51 @@
+{
+  "originHash" : "ad94fad65f3495781ad63a6ee77c896ba2efab19c7adc6f97cf076ba0faef61a",
+  "pins" : [
+    {
+      "identity" : "gsplayer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/wxxsw/GSPlayer.git",
+      "state" : {
+        "revision" : "706fc28fcc8e33607993903eca82d9f6c7c3f6d2",
+        "version" : "0.2.27"
+      }
+    },
+    {
+      "identity" : "stream-video-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/GetStream/stream-video-swift",
+      "state" : {
+        "revision" : "323359995b3519828428e21d6029ff830f537153",
+        "version" : "0.5.3"
+      }
+    },
+    {
+      "identity" : "stream-video-swift-webrtc",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/GetStream/stream-video-swift-webrtc.git",
+      "state" : {
+        "revision" : "2f7e07b4de39aeb65f3fdc83e4fdbefe5d7d5292",
+        "version" : "114.5735.8"
+      }
+    },
+    {
+      "identity" : "swift-protobuf",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-protobuf.git",
+      "state" : {
+        "revision" : "9f0c76544701845ad98716f3f6a774a892152bcb",
+        "version" : "1.26.0"
+      }
+    },
+    {
+      "identity" : "videoplayer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/wxxsw/VideoPlayer.git",
+      "state" : {
+        "revision" : "0a271928849292713daf471398a2a9185f28709c",
+        "version" : "1.2.4"
+      }
+    }
+  ],
+  "version" : 3
+}
