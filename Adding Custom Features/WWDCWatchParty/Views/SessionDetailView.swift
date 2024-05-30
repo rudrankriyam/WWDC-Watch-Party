@@ -8,16 +8,17 @@
 import SwiftUI
 import StreamVideo
 import AVKit
+import StreamVideoSwiftUI
 
 struct SessionDetailView: View {
   let session: Session
 
-  @ObservedObject var state: CallState
   private var client: StreamVideo
-  @State private var call: Call
   @State private var callCreated: Bool = false
   @State private var player: AVPlayer?
   @State private var syncTimer: Timer?
+
+  @ObservedObject var viewModel: CallViewModel
 
   init(session: Session) {
     self.session = session
@@ -28,10 +29,7 @@ struct SessionDetailView: View {
       token: .init(stringLiteral: "your_token")
     )
 
-    let call = client.call(callType: "default", callId: "session_\(session.id)")
-
-    self.call = call
-    self.state = call.state
+    self.viewModel = .init()
   }
 
   var body: some View {
@@ -54,20 +52,17 @@ struct SessionDetailView: View {
           }
       }
 
-      if let localParticipant = call.state.localParticipant {
-        ParticipantsView(
-          call: call,
-          participants: [localParticipant] + call.state.remoteParticipants,
-          onChangeTrackVisibility: changeTrackVisibility(_:isVisible:)
-        )
-      }
+      CallContainer(viewFactory: DefaultViewFactory.shared, viewModel: viewModel)
 
       if callCreated {
-        Text("Call \(call.callId) has \(call.state.participants.count) participants")
-          .font(.system(size: 30))
-          .foregroundColor(.blue)
+        Text("Watch party \(viewModel.call?.callId ?? "") has \(viewModel.call?.state.participants.count ?? 0) developers!")
+          .font(.footnote)
+          .foregroundColor(.secondary)
       } else {
-        Text("loading...")
+        VStack {
+          ProgressView()
+          Text("Loading video feed...")
+        }
       }
     }
     .navigationTitle(session.title)
@@ -77,7 +72,9 @@ struct SessionDetailView: View {
 
       Task {
         guard !callCreated else { return }
-        try await call.join(create: true)
+        guard viewModel.call == nil else { return }
+        viewModel.joinCall(callType: .default, callId: "session_\(session.id)")
+
         callCreated = true
 
         subscribeToCustomEvents()
@@ -87,8 +84,10 @@ struct SessionDetailView: View {
 
   private func subscribeToCustomEvents() {
     Task {
-      for await event in call.subscribe(for: CustomVideoEvent.self) {
-        handleCustomEvent(event)
+      if let call = viewModel.call {
+        for await event in call.subscribe(for: CustomVideoEvent.self) {
+          handleCustomEvent(event)
+        }
       }
     }
   }
@@ -113,7 +112,7 @@ struct SessionDetailView: View {
       ]
 
       do {
-        let response = try await call.sendCustomEvent(customEventData)
+        let response = try await viewModel.call?.sendCustomEvent(customEventData)
         print("SUCCESS SENT RESPONSE", response)
       } catch {
         print("Error sending custom event: \(error)")
@@ -137,11 +136,5 @@ struct SessionDetailView: View {
       print("Failed to set up audio session: \(error)")
     }
   }
-
-  private func changeTrackVisibility(_ participant: CallParticipant?, isVisible: Bool) {
-    guard let participant else { return }
-    Task {
-      await call.changeTrackVisibility(for: participant, isVisible: isVisible)
-    }
-  }
 }
+

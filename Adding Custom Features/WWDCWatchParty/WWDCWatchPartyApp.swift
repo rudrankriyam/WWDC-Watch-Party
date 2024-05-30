@@ -12,6 +12,7 @@ struct WWDCWatchPartyApp: App {
   var body: some Scene {
     WindowGroup {
       SessionsView(sessions: .sampleSessions)
+        .preferredColorScheme(.dark)
     }
   }
 }
