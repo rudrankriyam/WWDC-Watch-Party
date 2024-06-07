@@ -8,28 +8,30 @@
 import SwiftUI
 import StreamVideo
 import AVKit
-import StreamVideoSwiftUI
 
 struct SessionDetailView: View {
   let session: Session
 
+  @ObservedObject var state: CallState
   private var client: StreamVideo
+  @State private var call: Call
   @State private var callCreated: Bool = false
   @State private var player: AVPlayer?
   @State private var syncTimer: Timer?
-
-  @ObservedObject var viewModel: CallViewModel
 
   init(session: Session) {
     self.session = session
 
     self.client = StreamVideo(
-      apiKey: "mmhfdzb5evj2",
-      user: .guest("Rudrank Riyam"),
-      token: .init(stringLiteral: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiRGFydGhfQmFuZSIsImlzcyI6Imh0dHBzOi8vcHJvbnRvLmdldHN0cmVhbS5pbyIsInN1YiI6InVzZXIvRGFydGhfQmFuZSIsImlhdCI6MTcxNzA3MTM3MSwiZXhwIjoxNzE3Njc2MTc2fQ.lGyQAvX0PEL0AYwIvNRAx21FHVdjWIfEIhee2zfwy1c")
+      apiKey: "your_api_key",
+      user: .guest("guest_name"),
+      token: .init(stringLiteral: "your_token")
     )
 
-    self.viewModel = .init()
+    let call = client.call(callType: "default", callId: "session_\(session.id)")
+
+    self.call = call
+    self.state = call.state
   }
 
   var body: some View {
@@ -52,17 +54,20 @@ struct SessionDetailView: View {
           }
       }
 
-      CallContainer(viewFactory: DefaultViewFactory.shared, viewModel: viewModel)
+      if let localParticipant = call.state.localParticipant {
+        ParticipantsView(
+          call: call,
+          participants: [localParticipant] + call.state.remoteParticipants,
+          onChangeTrackVisibility: changeTrackVisibility(_:isVisible:)
+        )
+      }
 
       if callCreated {
-        Text("Watch party \(viewModel.call?.callId ?? "") has \(viewModel.call?.state.participants.count ?? 0) developers!")
-          .font(.footnote)
-          .foregroundColor(.secondary)
+        Text("Call \(call.callId) has \(call.state.participants.count) participants")
+          .font(.system(size: 30))
+          .foregroundColor(.blue)
       } else {
-        VStack {
-          ProgressView()
-          Text("Loading video feed...")
-        }
+        Text("loading...")
       }
     }
     .navigationTitle(session.title)
@@ -72,9 +77,7 @@ struct SessionDetailView: View {
 
       Task {
         guard !callCreated else { return }
-        guard viewModel.call == nil else { return }
-        viewModel.joinCall(callType: .default, callId: "session_\(session.id)")
-
+        try await call.join(create: true)
         callCreated = true
 
         subscribeToCustomEvents()
@@ -84,10 +87,8 @@ struct SessionDetailView: View {
 
   private func subscribeToCustomEvents() {
     Task {
-      if let call = viewModel.call {
-        for await event in call.subscribe(for: CustomVideoEvent.self) {
-          handleCustomEvent(event)
-        }
+      for await event in call.subscribe(for: CustomVideoEvent.self) {
+        handleCustomEvent(event)
       }
     }
   }
@@ -112,7 +113,7 @@ struct SessionDetailView: View {
       ]
 
       do {
-        let response = try await viewModel.call?.sendCustomEvent(customEventData)
+        let response = try await call.sendCustomEvent(customEventData)
         print("SUCCESS SENT RESPONSE", response)
       } catch {
         print("Error sending custom event: \(error)")
@@ -136,5 +137,11 @@ struct SessionDetailView: View {
       print("Failed to set up audio session: \(error)")
     }
   }
-}
 
+  private func changeTrackVisibility(_ participant: CallParticipant?, isVisible: Bool) {
+    guard let participant else { return }
+    Task {
+      await call.changeTrackVisibility(for: participant, isVisible: isVisible)
+    }
+  }
+}
