@@ -11,9 +11,9 @@ import AVKit
 
 struct SessionDetailView: View {
   let session: Session
+  let streamChatVideo: StreamChatVideo
 
   @ObservedObject var state: CallState
-  private var client: StreamVideo
   @State private var call: Call
   @State private var callCreated: Bool = false
   @State private var player: AVPlayer?
@@ -22,13 +22,13 @@ struct SessionDetailView: View {
   init(session: Session) {
     self.session = session
 
-    self.client = StreamVideo(
+    self.streamChatVideo = StreamChatVideo(
       apiKey: "your_api_key",
       user: .guest("guest_name"),
       token: .init(stringLiteral: "your_token")
     )
 
-    let call = client.call(callType: "default", callId: "session_\(session.id)")
+    let call = streamChatVideo.streamVideo.call(callType: "default", callId: "session_\(session.id)")
 
     self.call = call
     self.state = call.state

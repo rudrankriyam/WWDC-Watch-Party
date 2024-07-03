@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A156FD32C35D95900341806 /* StreamChatVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A156FD22C35D95200341806 /* StreamChatVideo.swift */; };
+		0A156FD52C35DF6800341806 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A156FD42C35DF6700341806 /* ChatView.swift */; };
 		0A17528B2BCF9F28001EF204 /* VideoPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 0A17528A2BCF9F28001EF204 /* VideoPlayer */; };
 		0A237EF32C13545500797279 /* StreamChat in Frameworks */ = {isa = PBXBuildFile; productRef = 0A237EF22C13545500797279 /* StreamChat */; };
 		0A237EF52C13545500797279 /* StreamChatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0A237EF42C13545500797279 /* StreamChatUI */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A156FD22C35D95200341806 /* StreamChatVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamChatVideo.swift; sourceTree = "<group>"; };
+		0A156FD42C35DF6700341806 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		0ADA81E92BC7FBCB008714D0 /* WWDCWatchParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDCWatchParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ADA81EC2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCWatchPartyApp.swift; sourceTree = "<group>"; };
 		0ADA81EE2BC7FBCB008714D0 /* ParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsView.swift; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 		0ADA81EB2BC7FBCB008714D0 /* WWDCWatchParty */ = {
 			isa = PBXGroup;
 			children = (
+				0A156FD22C35D95200341806 /* StreamChatVideo.swift */,
 				0AE97F422BD65CC80027F5D7 /* Views */,
 				0AE97F412BD65CC20027F5D7 /* Models */,
 				0ADA81EC2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift */,
@@ -97,6 +102,7 @@
 		0AE97F422BD65CC80027F5D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A156FD42C35DF6700341806 /* ChatView.swift */,
 				0AE97F432BD65CDF0027F5D7 /* SessionsView.swift */,
 				0AE97F452BD65D080027F5D7 /* SessionDetailView.swift */,
 				0ADA81EE2BC7FBCB008714D0 /* ParticipantsView.swift */,
@@ -191,6 +197,8 @@
 				0ADA81EF2BC7FBCB008714D0 /* ParticipantsView.swift in Sources */,
 				0AE97F462BD65D080027F5D7 /* SessionDetailView.swift in Sources */,
 				0ADA81ED2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift in Sources */,
+				0A156FD32C35D95900341806 /* StreamChatVideo.swift in Sources */,
+				0A156FD52C35DF6800341806 /* ChatView.swift in Sources */,
 				0AE97F402BD654BC0027F5D7 /* Session.swift in Sources */,
 				0AE97F442BD65CDF0027F5D7 /* SessionsView.swift in Sources */,
 			);
