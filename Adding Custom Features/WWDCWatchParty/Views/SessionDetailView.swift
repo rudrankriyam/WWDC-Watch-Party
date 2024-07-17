@@ -19,6 +19,7 @@ struct SessionDetailView: View {
   @State private var player: AVPlayer?
   @State private var syncTimer: Timer?
   private let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiS3lsZV9LYXRhcm4iLCJpc3MiOiJodHRwczovL3Byb250by5nZXRzdHJlYW0uaW8iLCJzdWIiOiJ1c2VyL0t5bGVfS2F0YXJuIiwiaWF0IjoxNzIxMjA0MTQ0LCJleHAiOjE3MjE4MDg5NDl9.uaM9VaHH3F5G2vg_d8949Bxko0z8u5iIZktYGeU6NNI"
+  @State private var reactions: [Reaction] = []
 
   @ObservedObject var viewModel: CallViewModel
 
@@ -59,6 +60,17 @@ struct SessionDetailView: View {
 
       CallContainer(viewFactory: DefaultViewFactory.shared, viewModel: viewModel)
 
+      ReactionButtonsView(onReactionSent: { reaction in
+        sendReaction(reaction)
+      })
+
+      ZStack {
+        ForEach(reactions.indices, id: \.self) { index in
+          ReactionView(reaction: reactions[index])
+            .transition(.opacity)
+        }
+      }
+
       if callCreated {
         Text("Watch party \(viewModel.call?.callId ?? "") has \(viewModel.call?.state.participants.count ?? 0) developers!")
           .font(.footnote)
@@ -83,6 +95,7 @@ struct SessionDetailView: View {
         callCreated = true
 
         subscribeToCustomEvents()
+        subscribeToReactionEvents()
       }
     }
   }
@@ -92,6 +105,21 @@ struct SessionDetailView: View {
       if let call = viewModel.call {
         for await event in call.subscribe(for: CustomVideoEvent.self) {
           handleCustomEvent(event)
+        }
+      }
+    }
+  }
+
+  private func subscribeToReactionEvents() {
+    Task {
+      if let call = viewModel.call {
+        for await event in call.subscribe(for: CallReactionEvent.self) {
+          if let emojiCode = event.reaction.emojiCode, let reaction = Reaction(emojiCode: emojiCode) {
+            self.reactions.append(reaction)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+              self.reactions.removeFirst()
+            }
+          }
         }
       }
     }
@@ -118,9 +146,9 @@ struct SessionDetailView: View {
 
       do {
         let response = try await viewModel.call?.sendCustomEvent(customEventData)
-        print("SUCCESS SENT RESPONSE", response)
+        debugPrint("SUCCESS SENT RESPONSE", response)
       } catch {
-        print("Error sending custom event: \(error)")
+        debugPrint("Error sending custom event: \(error)")
       }
     }
   }
@@ -138,7 +166,38 @@ struct SessionDetailView: View {
       try audioSession.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .mixWithOthers])
       try audioSession.setActive(true)
     } catch {
-      print("Failed to set up audio session: \(error)")
+      debugPrint("Failed to set up audio session: \(error)")
     }
+  }
+
+  private func sendReaction(_ reaction: Reaction) {
+    Task {
+      do {
+        let response = try await viewModel.call?.sendReaction(type: "call.reaction_new", emojiCode: reaction.emojiCode)
+        debugPrint("Reaction sent successfully: \(String(describing: response?.reaction))")
+      } catch {
+        debugPrint("Error sending reaction: \(error)")
+      }
+    }
+  }
+}
+
+struct ReactionView: View {
+  let reaction: Reaction
+
+  @State private var offset: CGFloat = 0
+  @State private var opacity: Double = 1
+
+  var body: some View {
+    Text(reaction.rawValue)
+      .font(.system(size: 40))
+      .offset(y: offset)
+      .opacity(opacity)
+      .onAppear {
+        withAnimation(.easeOut(duration: 2)) {
+          offset = -100
+          opacity = 0
+        }
+      }
   }
 }
