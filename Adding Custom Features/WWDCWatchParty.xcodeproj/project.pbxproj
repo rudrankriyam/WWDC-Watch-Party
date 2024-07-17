@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A17528B2BCF9F28001EF204 /* VideoPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 0A17528A2BCF9F28001EF204 /* VideoPlayer */; };
+		0AABEF5E2C47AF89002A2121 /* WWDC24Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AABEF5D2C47AF89002A2121 /* WWDC24Theme.swift */; };
 		0ADA81ED2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA81EC2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift */; };
 		0ADA81EF2BC7FBCB008714D0 /* ParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA81EE2BC7FBCB008714D0 /* ParticipantsView.swift */; };
 		0ADA81F12BC7FBCC008714D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ADA81F02BC7FBCC008714D0 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AABEF5D2C47AF89002A2121 /* WWDC24Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDC24Theme.swift; sourceTree = "<group>"; };
 		0ADA81E92BC7FBCB008714D0 /* WWDCWatchParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDCWatchParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ADA81EC2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCWatchPartyApp.swift; sourceTree = "<group>"; };
 		0ADA81EE2BC7FBCB008714D0 /* ParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 		0ADA81EB2BC7FBCB008714D0 /* WWDCWatchParty */ = {
 			isa = PBXGroup;
 			children = (
+				0AABEF5D2C47AF89002A2121 /* WWDC24Theme.swift */,
 				0AE97F422BD65CC80027F5D7 /* Views */,
 				0AE97F412BD65CC20027F5D7 /* Models */,
 				0ADA81EC2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift */,
@@ -181,6 +184,7 @@
 				0AE97F462BD65D080027F5D7 /* SessionDetailView.swift in Sources */,
 				0ADA81ED2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift in Sources */,
 				0AE97F402BD654BC0027F5D7 /* Session.swift in Sources */,
+				0AABEF5E2C47AF89002A2121 /* WWDC24Theme.swift in Sources */,
 				0AE97F442BD65CDF0027F5D7 /* SessionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

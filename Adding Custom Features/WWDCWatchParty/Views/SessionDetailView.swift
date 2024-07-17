@@ -13,21 +13,26 @@ import StreamVideoSwiftUI
 struct SessionDetailView: View {
   let session: Session
 
-  private var client: StreamVideo
+  @State private var streamVideoUI: StreamVideoUI
+
   @State private var callCreated: Bool = false
   @State private var player: AVPlayer?
   @State private var syncTimer: Timer?
+  private let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiS3lsZV9LYXRhcm4iLCJpc3MiOiJodHRwczovL3Byb250by5nZXRzdHJlYW0uaW8iLCJzdWIiOiJ1c2VyL0t5bGVfS2F0YXJuIiwiaWF0IjoxNzIxMjA0MTQ0LCJleHAiOjE3MjE4MDg5NDl9.uaM9VaHH3F5G2vg_d8949Bxko0z8u5iIZktYGeU6NNI"
 
   @ObservedObject var viewModel: CallViewModel
 
   init(session: Session) {
     self.session = session
+    let appearance = WWDC24Theme.createAppearance()
 
-    self.client = StreamVideo(
+    let streamVideo = StreamVideo(
       apiKey: "mmhfdzb5evj2",
-      user: .guest("Rudrank Riyam"),
-      token: .init(stringLiteral: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiRGFydGhfQmFuZSIsImlzcyI6Imh0dHBzOi8vcHJvbnRvLmdldHN0cmVhbS5pbyIsInN1YiI6InVzZXIvRGFydGhfQmFuZSIsImlhdCI6MTcxNzA3MTM3MSwiZXhwIjoxNzE3Njc2MTc2fQ.lGyQAvX0PEL0AYwIvNRAx21FHVdjWIfEIhee2zfwy1c")
+      user: .init(id: UUID().uuidString, name: "Rudrank Riyam"),
+      token: .init(stringLiteral: token)
     )
+
+    streamVideoUI = StreamVideoUI(streamVideo: streamVideo, appearance: appearance)
 
     self.viewModel = .init()
   }
@@ -137,4 +142,3 @@ struct SessionDetailView: View {
     }
   }
 }
-

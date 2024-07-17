@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import StreamVideo
+import StreamVideoSwiftUI
 
 @main
 struct WWDCWatchPartyApp: App {

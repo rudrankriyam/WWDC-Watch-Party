@@ -23,10 +23,10 @@ extension [Session] {
       thumbnailURL: URL(string: "https://i.ytimg.com/vi/GYkq9Rgoj8E/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAI0BvhdevIRJS89JD9YnXlbsh20w")!
     ),
     Session(
-      id: 10072,
-      title: "Principles of spatial design",
-      videoURL: URL(string: "https://devstreaming-cdn.apple.com/videos/wwdc/2023/10072/5/C43DFF91-F057-43E1-891F-41E6D5C01716/cmaf.m3u8")!,
-      thumbnailURL: URL(string: "https://i.ytimg.com/vi/Q1aJy1Hwjp8/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBydTO2C6nUmnN4X_zC66dH8QW2FQ")!
+      id: 10133,
+      title: "Bring your app to Siri",
+      videoURL: URL(string: "https://devstreaming-cdn.apple.com/videos/wwdc/2024/10133/4/8167BB3B-00DE-4F39-A88C-4A719DF29D02/cmaf.m3u8")!,
+      thumbnailURL: URL(string: "https://devimages-cdn.apple.com/wwdc-services/images/C03E6E6D-A32A-41D0-9E50-C3C6059820AA/9261/9261_wide_250x141_2x.jpg")!
     ),
     Session(
       id: 10109,
