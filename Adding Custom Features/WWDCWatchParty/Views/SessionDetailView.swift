@@ -36,6 +36,8 @@ struct SessionDetailView: View {
     streamVideoUI = StreamVideoUI(streamVideo: streamVideo, appearance: appearance)
 
     self.viewModel = .init()
+
+    registerDeviceForPushNotifications(with: streamVideo)
   }
 
   var body: some View {
@@ -86,6 +88,8 @@ struct SessionDetailView: View {
     .onAppear {
       setupAudioSession()
       setupAVPlayer()
+
+      notifyNewSessionStarting(session: session)
 
       Task {
         guard !callCreated else { return }
@@ -180,6 +184,39 @@ struct SessionDetailView: View {
       }
     }
   }
+
+  private func notifyNewSessionStarting(session: Session) {
+    let customEventData: [String: RawJSON] = [
+      "type": .string("newSession"),
+      "sessionId": .string(String(session.id)),
+      "sessionTitle": .string(session.title)
+    ]
+
+    Task {
+      do {
+        try await viewModel.call?.sendCustomEvent(customEventData)
+        debugPrint("New session notification sent")
+      } catch {
+        debugPrint("Error sending new session notification: \(error)")
+      }
+    }
+  }
+
+  private func registerDeviceForPushNotifications(with streamVideo: StreamVideo) {
+    guard let token = UserDefaults.standard.string(forKey: "pushNotificationToken") else {
+      print("No push notification token available")
+      return
+    }
+
+    Task {
+      do {
+        try await streamVideo.setDevice(id: token)
+        print("Device registered for push notifications")
+      } catch {
+        print("Error registering device: \(error)")
+      }
+    }
+  }
 }
 
 struct ReactionView: View {
@@ -201,3 +238,4 @@ struct ReactionView: View {
       }
   }
 }
+

@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		0A636A682C47D95100658A15 /* Reaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reaction.swift; sourceTree = "<group>"; };
 		0A636A6A2C47D96200658A15 /* ReactionButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionButtonsView.swift; sourceTree = "<group>"; };
+		0A636A6C2C47E9FE00658A15 /* WWDCWatchParty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WWDCWatchParty.entitlements; sourceTree = "<group>"; };
 		0AABEF5D2C47AF89002A2121 /* WWDC24Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDC24Theme.swift; sourceTree = "<group>"; };
 		0ADA81E92BC7FBCB008714D0 /* WWDCWatchParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDCWatchParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ADA81EC2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCWatchPartyApp.swift; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		0ADA81EB2BC7FBCB008714D0 /* WWDCWatchParty */ = {
 			isa = PBXGroup;
 			children = (
+				0A636A6C2C47E9FE00658A15 /* WWDCWatchParty.entitlements */,
 				0AABEF5D2C47AF89002A2121 /* WWDC24Theme.swift */,
 				0AE97F422BD65CC80027F5D7 /* Views */,
 				0AE97F412BD65CC20027F5D7 /* Models */,
@@ -324,6 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WWDCWatchParty/WWDCWatchParty.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WWDCWatchParty/Preview Content\"";
@@ -356,6 +359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WWDCWatchParty/WWDCWatchParty.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WWDCWatchParty/Preview Content\"";

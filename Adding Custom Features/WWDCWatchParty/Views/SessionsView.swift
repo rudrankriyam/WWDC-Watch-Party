@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SessionsView: View {
   let sessions: [Session]
+  @State private var showNewSessionAlert = false
 
   var body: some View {
     NavigationStack {
@@ -37,6 +38,12 @@ struct SessionsView: View {
         .padding()
       }
       .navigationTitle("WWDC Sessions")
+    }
+    .onReceive(NotificationCenter.default.publisher(for: .newSessionStarting)) { _ in
+      showNewSessionAlert = true
+    }
+    .alert(isPresented: $showNewSessionAlert) {
+      Alert(title: Text("New Session Starting"), message: Text("A new WWDC session is about to begin!"), dismissButton: .default(Text("OK")))
     }
   }
 }
