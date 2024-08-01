@@ -204,16 +204,16 @@ struct SessionDetailView: View {
 
   private func registerDeviceForPushNotifications(with streamVideo: StreamVideo) {
     guard let token = UserDefaults.standard.string(forKey: "pushNotificationToken") else {
-      print("No push notification token available")
+      debugPrint("No push notification token available")
       return
     }
 
     Task {
       do {
         try await streamVideo.setDevice(id: token)
-        print("Device registered for push notifications")
+        debugPrint("Device registered for push notifications")
       } catch {
-        print("Error registering device: \(error)")
+        debugPrint("Error registering device: \(error)")
       }
     }
   }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A14FC542C579CC0004885AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A14FC532C579CC0004885AA /* AppDelegate.swift */; };
 		0A17528B2BCF9F28001EF204 /* VideoPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 0A17528A2BCF9F28001EF204 /* VideoPlayer */; };
 		0A636A692C47D95100658A15 /* Reaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A636A682C47D95100658A15 /* Reaction.swift */; };
 		0A636A6B2C47D96200658A15 /* ReactionButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A636A6A2C47D96200658A15 /* ReactionButtonsView.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A14FC532C579CC0004885AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A636A682C47D95100658A15 /* Reaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reaction.swift; sourceTree = "<group>"; };
 		0A636A6A2C47D96200658A15 /* ReactionButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionButtonsView.swift; sourceTree = "<group>"; };
 		0A636A6C2C47E9FE00658A15 /* WWDCWatchParty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WWDCWatchParty.entitlements; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				0AE97F422BD65CC80027F5D7 /* Views */,
 				0AE97F412BD65CC20027F5D7 /* Models */,
 				0ADA81EC2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift */,
+				0A14FC532C579CC0004885AA /* AppDelegate.swift */,
 				0ADA81F02BC7FBCC008714D0 /* Assets.xcassets */,
 				0ADA81F22BC7FBCC008714D0 /* Preview Content */,
 			);
@@ -191,6 +194,7 @@
 				0ADA81EF2BC7FBCB008714D0 /* ParticipantsView.swift in Sources */,
 				0AE97F462BD65D080027F5D7 /* SessionDetailView.swift in Sources */,
 				0A636A692C47D95100658A15 /* Reaction.swift in Sources */,
+				0A14FC542C579CC0004885AA /* AppDelegate.swift in Sources */,
 				0A636A6B2C47D96200658A15 /* ReactionButtonsView.swift in Sources */,
 				0ADA81ED2BC7FBCB008714D0 /* WWDCWatchPartyApp.swift in Sources */,
 				0AE97F402BD654BC0027F5D7 /* Session.swift in Sources */,
@@ -333,6 +337,7 @@
 				DEVELOPMENT_TEAM = YQZQG7N4WG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "WWDC Watch Party";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is required to share your video during the WWDC watch party.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access is required to share your audio during the WWDC watch party.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -366,6 +371,7 @@
 				DEVELOPMENT_TEAM = YQZQG7N4WG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "WWDC Watch Party";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is required to share your video during the WWDC watch party.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access is required to share your audio during the WWDC watch party.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
