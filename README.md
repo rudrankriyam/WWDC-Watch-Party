@@ -1,5 +1,4 @@
 # WWDC Watch Party App with Video Calling
-[![Star History Chart](https://api.star-history.com/svg?repos=rudrankriyam/WWDC-Watch-Party&type=Date)](https://star-history.com/#rudrankriyam/WWDC-Watch-Party&Date)
 
 This sample project demonstrates how to build an iOS app for hosting WWDC watch parties with video calling functionality using Stream's Video SDK. The app allows users to watch WWDC sessions together in real-time while engaging in video conversations with their friends.
 
@@ -46,3 +45,5 @@ This sample project utilizes the Stream Video SDK and various open-source librar
 ## Contact
 For any questions or inquiries, please create an issue.
 Happy coding and enjoy your WWDC watch parties!
+
+[![Star History Chart](https://api.star-history.com/svg?repos=rudrankriyam/WWDC-Watch-Party&type=Date)](https://star-history.com/#rudrankriyam/WWDC-Watch-Party&Date)
